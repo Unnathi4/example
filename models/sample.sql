@@ -1,11 +1,9 @@
-with customers as (
-
-    select
-        c_custkey as customer_id,
+WITH customers AS (
+    SELECT
+        c_custkey AS customer_id,
         C_name,
         c_address
-
-    from analytics.unnathi_dbt.customer
-
+    FROM analytics.unnathi_dbt.customer
 )
-select * from customers
+SELECT * FROM customers;
+
