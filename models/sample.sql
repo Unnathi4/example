@@ -6,6 +6,8 @@ WITH customers AS (
     FROM analytics.unnathi_dbt.customer
 )
 
-CREATE OR REPLACE VIEW analytics.dbt_unnathi4.sample AS
-SELECT * FROM customers;
+SELECT *
+FROM customers
+LIMIT 500; 
+
 
