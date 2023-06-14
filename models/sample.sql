@@ -8,3 +8,4 @@ with customers as (
     from analytics.unnathi_dbt.customer
 
 )
+select * from customers
