@@ -1,4 +1,4 @@
-WITH customers AS (
+with customers AS (
     SELECT
         c_custkey AS customer_id,
         C_name,
@@ -6,8 +6,5 @@ WITH customers AS (
     FROM analytics.unnathi_dbt.customer
 )
 
-SELECT *
-FROM customers
-LIMIT 500 
 
 
