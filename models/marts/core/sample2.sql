@@ -1,18 +1,9 @@
  with customers as (
-    select 
-         c_custkey as customer_id,
-         c_name as name ,
-         c_address as address
-    from analytics.unnathi_dbt.customer
+      select * from {{ ref ('stg_customers')}}
  ),
   
   orders as (
-    select 
-        o_orderkey as order_id,
-        o_custkey as customer_id,
-        o_orderstatus as status,
-        o_orderdate as order_date
-    from analytics.unnathi_dbt.orders
+    select * from {{ ref ('stg_orders')}}
   ),
   customer_orders as (
     
