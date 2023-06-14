@@ -8,6 +8,6 @@ WITH customers AS (
 
 SELECT *
 FROM customers
-LIMIT 500; 
+LIMIT 500 
 
 
