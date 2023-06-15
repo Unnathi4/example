@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: unnathi_dbt
+    database: analytics
+    schema: unnathi_dbt
+    tables:
+      - name: customer
+        columns:
+          - name: c_custkey
+            tests:
+              - unique
+              - not_null
+            
+      - name: orders
+        columns:
+          - name: o_orderkey
+            tests:
+              - unique              
+              - not_null

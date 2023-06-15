@@ -4,7 +4,7 @@ with orders as (
     o_custkey as customer_id,
     o_orderstatus as status,
     o_orderdate as order_date
-    from analytics.unnathi_dbt.orders
+    from {{ source('unnathi_dbt','orders')}}
 )
 
  select * from orders
