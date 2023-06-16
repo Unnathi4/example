@@ -1,0 +1,3 @@
+{% set my cool string = " Wow "%}
+
+{{ print my cool string }}

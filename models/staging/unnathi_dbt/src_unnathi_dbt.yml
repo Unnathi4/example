@@ -11,10 +11,10 @@ sources:
             tests:
               - unique
               - not_null
-            
+
       - name: orders
         columns:
           - name: o_orderkey
             tests:
-              - unique              
+              - unique
               - not_null
