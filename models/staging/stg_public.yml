@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: stg_customers
+    columns: 
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+          - dbt_utils.cardinality_equality:
+              field: customer_id
+              to: ref('stg_customers')
+
+  - name: stg_orders
+  
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values:
+                - completed
+                - shipped
+                - returned
+                - return_pending
+                - placed
+  - name: stg_payments
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "amount >= 0"
+    columns:
+      - name: payment_id
+        tests:
+          - unique:
+              config:
+                severity: error
+                error_if: ">100"
+                warn_if: ">10"
+      - name: amount
+      - name: payment_status
