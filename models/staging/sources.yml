@@ -1,0 +1,42 @@
+version: 2
+
+
+sources:
+
+  - name: public
+
+    tables:
+
+      - name: orders
+        freshness: # default freshness
+          warn_after: { count: 1, period: hour}
+
+          error_after: {count: 10, period: day }
+
+        loaded_at_field: _etl_loaded_at
+
+
+      - name: customers
+
+      - name: payments
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique:
+                  config:
+                    severity: error
+                    error_if: ">100"
+                    warn_if: ">10"
+          - name: paymentmethod
+            tests:
+              - accepted_values:
+                  values: ['credit_card', 'bank_transfer', 'gift_card', 'coupon']
+                  config:
+                    where: "status != 'fail'"
+          - name: status
+            tests:
+              - accepted_values:
+                  values: ['success', 'fail']
+                  config:
+                    limit: 10
