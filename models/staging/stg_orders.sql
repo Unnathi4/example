@@ -2,7 +2,7 @@
 
     materialized = 'incremental',
 
-    unique_key = 'user_id'
+    unique_key = 'order_id'
 
 ) }}
 

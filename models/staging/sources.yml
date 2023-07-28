@@ -9,7 +9,7 @@ sources:
 
       - name: orders
         freshness: # default freshness
-          warn_after: { count: 1, period: day}
+          warn_after: { count: 1, period: hour}
 
           error_after: {count: 10, period: day }
 

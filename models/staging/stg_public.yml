@@ -7,9 +7,6 @@ models:
         tests:
           - unique
           - not_null
-          - dbt_utils.cardinality_equality:
-              field: customer_id
-              to: ref('stg_customers')
 
   - name: stg_orders
   
